@@ -1,4 +1,5 @@
 import {Navbar,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
     return (
@@ -28,8 +29,11 @@ const NavBar = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/">Mayores</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#" disabled>
+                <Nav.Link href="/" disabled>
                     Promo del dia
+                </Nav.Link>
+                <Nav.Link href="/">
+                    <CartWidget />
                 </Nav.Link>
                 </Nav>
                 <Form className="d-flex mx-auto">
