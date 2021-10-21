@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function ItemListContainer(props) {
+export default function ItemListContainer({greeting, children}) {
     return (
         <div>
-            <p>{props.greeting}</p>
+            {greeting}
+            {children}
         </div>
     )
 }
