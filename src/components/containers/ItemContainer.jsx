@@ -3,6 +3,11 @@ import ItemCount from './ItemCount'
 import {Card} from 'react-bootstrap';
 
 export default function ItemContainer() {
+    
+    const handleClick=(contador) =>{
+        alert(`La cantidad agregada es ${contador}`)
+        }
+
     return (
         <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="assets/image/logo_tienda_med.png" />
@@ -12,7 +17,7 @@ export default function ItemContainer() {
             Some quick example text to build on the card title and make up the bulk of
             the card's content.
             </Card.Text>
-            <ItemCount stock="8" initial="1"/>
+            <ItemCount stock={8} initial={1} addOn={handleClick}/>
         </Card.Body>
         </Card>
     )

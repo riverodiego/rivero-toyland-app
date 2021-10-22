@@ -9,9 +9,7 @@ function App() {
       <NavBar />
       <Row className="mx-0">
         <Col className="mt-5 text-center"> 
-          <ItemListContainer greeting="Bienvenido a Lista de Productos"> 
-            <ItemContainer />
-          </ItemListContainer>
+          <ItemListContainer greeting="Bienvenido a Lista de Productos" componentItem={ItemContainer} /> 
         </Col>
       </Row>
     </Container>
