@@ -1,5 +1,7 @@
 import {Navbar,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
+
 
 const NavBar = () => {
     return (
@@ -12,27 +14,28 @@ const NavBar = () => {
                 style={{ maxHeight: '350px' }}
                 navbarScroll
                 >
-                <Nav.Link href="/">Inicio</Nav.Link>
+                <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                 <NavDropdown title="Categoria" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="/">Peluches</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Muñecos</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/peluches">Peluches</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/muñecos">Muñecos</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/">Ladrillos</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Autos</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/ladrillos">Ladrillos</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/autos">Autos</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/">Cuentos</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/cuentos">Cuentos</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/juegosdemesa">Juegos de Mesa</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Edad" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="/">1 a 3 Años</NavDropdown.Item>
-                    <NavDropdown.Item href="/">4 a 6 Años</NavDropdown.Item>
-                    <NavDropdown.Item href="/">6 a 9 Años</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/edad/1a3años">1 a 3 Años</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/edad/4a6años">4 a 6 Años</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/edad/7a9años">7 a 9 Años</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/">Mayores</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/edad/mayores">Mayores</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="/" disabled>
+                <Nav.Link as={Link} to="/" disabled>
                     Promo del dia
                 </Nav.Link>
-                <Nav.Link href="/">
+                <Nav.Link as={Link} to="/cart">
                     <CartWidget />
                 </Nav.Link>
                 </Nav>
