@@ -14,17 +14,29 @@ const { id } = useParams ();
 
 useEffect(() => {
     if (id) {
+        if (id.includes('años') || id==='mayores'){
+            console.log("contiene años en el parametro")
+            getProducts
+            .then( res => {        
+                console.log('llamada a api control')
+                setProduct(res.filter(prod => prod.age.find(e => e===id)))
+            })    
+            .catch(err => console.log(err))
+            .finally(()=> setLoading(false))
+        }else{
         getProducts
         .then( res => {        
-            console.log('llamada a api')
+            console.log('llamada a api control')
             setProduct(res.filter(prod => prod.category=== id))
         })    
         .catch(err => console.log(err))
         .finally(()=> setLoading(false))
+        }
     }else{
         getProducts
         .then( res => {        
             console.log('llamada a api')
+            console.log(res)
             setProduct(res)
         })    
         .catch(err => console.log(err))

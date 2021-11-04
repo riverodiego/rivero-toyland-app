@@ -6,7 +6,7 @@ import CartWidget from './CartWidget';
 const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/"><img src="../logo_tienda.png" alt="logo de la tienda" /> ToyLand </Navbar.Brand>
+            <Navbar.Brand as={Link} to="/"><img src="../logo_tienda.png" alt="logo de la tienda" /> ToyLand </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <Nav

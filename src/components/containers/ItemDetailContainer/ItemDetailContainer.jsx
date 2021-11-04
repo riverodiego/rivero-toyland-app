@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { getProducts } from '../../../services/getProducts'
 import {useParams} from 'react-router-dom'

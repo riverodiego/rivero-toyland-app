@@ -19,7 +19,7 @@ export default function ItemCount({stock,initial,addOn}) {
 
     return (
         <>
-            <InputGroup className="mb-3">
+            <InputGroup className="m-3">
                 <Button variant="outline-primary" size="sm" onClick={onDecrease} disabled={contador<2}>-</Button>
                 <FormControl className="text-center" value={contador} onChange={e => setContador(e.target.value)}/>
                 <Button variant="outline-primary" onClick={onIncrease} disabled={contador===stock}>+</Button>
