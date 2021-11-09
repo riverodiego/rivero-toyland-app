@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {Modal, Button} from 'react-bootstrap';
 
-const MessageAlert = (msg,btName,titleMsg) => {
-    const [show, setShow] = useState(false);
+const MessageAlert = (msg,btnMsg,titleMsg) => {
+  const [show, setShow] = useState(false)
 
     return (
       <>
-        <Button variant="primary" size="sm" onClick={() => setShow(true)}>
-          {btName}
+        <Button variant="primary" 
+          onClick={() => setShow(true)}>
+          {btnMsg}
         </Button>
         <Modal
           show={show}

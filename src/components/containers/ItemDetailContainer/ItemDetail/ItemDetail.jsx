@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../../../Item/ItemCount'
 import {Card, Button, Col, Row} from 'react-bootstrap';
-import MessageAlert from '../../../MessageAlert/MessageAlert';
 import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
+    const [cant, setCant] = useState(1);
+
+    const addOn = (count) => {
+        setCant(count);
+        alert(`La cantidad Agregada es: ${count}`);
+    }
 
     return (
         <>
@@ -18,7 +23,7 @@ const ItemDetail = ({item}) => {
                 <Col className="mt-5">
                     <Card.Title> <h2> $ {item.price} </h2></Card.Title>
                     <Card.Title className="m-5">
-                        <ItemCount stock={item.stock} initial={1} addOn={MessageAlert}/>
+                        <ItemCount stock={item.stock} initial={cant} addOn={addOn}/>
                     </Card.Title>
                     <Card.Title className="m-3">
                         {item.detail}

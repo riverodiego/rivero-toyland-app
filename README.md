@@ -8,7 +8,7 @@ Esta es una tienda de juguetes dinamica que simula una app para compras online
 - fortawesome: para incorporar el icono de carrito de compras, y otros iconos a futuro.
 - react bootstrap: para manejar los estilos del proyecto
 - react-router-dom: para crear la SPA con navegabilidad sin refrescar la pantalla
-- Se corrio net run build para luego subir la App a Netlify
+- build: Se corrio net run build para luego subir la App a Netlify
 
 ## Implementaciones
 

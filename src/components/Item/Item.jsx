@@ -1,23 +1,21 @@
-import ItemCount from './ItemCount'
 import {Card, Button} from 'react-bootstrap';
-import MessageAlert from '../MessageAlert/MessageAlert';
 import { Link } from 'react-router-dom';
 
 export default function Item(prod) {
     
     return (
-        <Card key={prod.id} style={{ width: '18rem' }} className="mt-5 text-center">
+        <Card key={prod.id} style={{ minWidth: '14rem', maxWidth: '16rem', maxHeight: '40rem' }} className="m-3 text-center shadow">
         <Card.Header>{prod.name}</Card.Header>
-        <Card.Body>
-        <Card.Img variant="top" src={prod.foto} />
+        <Card.Body className="text-center">
+        <Card.Img style={{ maxWidth: '8rem', maxHeight: '10rem' }} variant="top" src={prod.foto} />
             <Card.Title> $ {prod.price}</Card.Title>
             <Card.Text> {prod.category}</Card.Text>
-            <ItemCount stock={prod.stock} initial={1} addOn={MessageAlert}/>
-        </Card.Body>
-        <Card.Footer>
             <Link to={`/detalle/${prod.id}`}>
                 <Button variant="primary" size="sm">Detalle del producto</Button>
             </Link>
+        </Card.Body>
+        <Card.Footer>
+            <Card.Text className="text-muted"> {prod.stock} productos disponibles </Card.Text>
         </Card.Footer>
         </Card>
     )
