@@ -19,7 +19,7 @@ useEffect(() => {
             getProducts
             .then( res => {        
                 console.log('llamada a api control')
-                setProduct(res.filter(prod => prod.age.find(e => e===id)))
+                setProduct(res.filter(prod => prod.age.includes(id)))
             })    
             .catch(err => console.log(err))
             .finally(()=> setLoading(false))

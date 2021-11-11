@@ -7,7 +7,7 @@
         "detail":"Este es un juego para divertirse jugando con imanes",
         "price":299,
         "stock":9,
-        "age":["4a6años","7a9años","mayores"]
+        "age":"4a6años7a9añosmayores"
     },
     {
         "id":2,
@@ -17,7 +17,7 @@
         "detail":"Este muñequito te quita el estress, muy recomendado",
         "price":419,
         "stock":10,
-        "age":["7a9años","mayores"]
+        "age":"7a9añosmayores"
     },
     {
         "id":3,
@@ -27,7 +27,7 @@
         "detail":"para divertirse con los mas chiquitos y pescar de a dos",
         "price":249,
         "stock":11,
-        "age":["4a6años","7a9años","mayores"]
+        "age": "4a6años7a9añosmayores"
     },
     {
         "id":4,
@@ -37,7 +37,7 @@
         "detail":"Al tirar de la cuerda se reproduce I LOVE YOU",
         "price":649,
         "stock":5,
-        "age":["1a3años"]
+        "age":"1a3años"
     },
     {
         "id":5,
@@ -47,7 +47,7 @@
         "detail":"Pack x 25 bloques con 4 tamaños diferentes en blister",
         "price":149,
         "stock":100,
-        "age":["4a6años","7a9años"]
+        "age":"4a6años7a9años"
     },
     {
         "id":6,
@@ -57,7 +57,7 @@
         "detail":"Auto camion bomberos de 19 cm color rojo con sirena",
         "price":349,
         "stock":50,
-        "age":["4a6años","7a9años"]
+        "age":"4a6años7a9años"
     },
     {
         "id":7,
@@ -67,7 +67,7 @@
         "detail":"Se trata de una coleccion de cuentos infantiles para leer antes de dormir",
         "price":979,
         "stock":20,
-        "age":["4a6años","7a9años"]
+        "age":"4a6años7a9años"
     },
     {
         "id":8,
@@ -77,6 +77,6 @@
         "detail":"Se trata de un muñeco de coleccion de los años 80, del comic he-man Master of de Universe",
         "price":16070,
         "stock":7,
-        "age":["mayores"]
+        "age":"mayores"
     }
 ]

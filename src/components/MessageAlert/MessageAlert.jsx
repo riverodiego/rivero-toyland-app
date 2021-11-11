@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import {Modal, Button} from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 
-const MessageAlert = (msg,btnMsg,titleMsg) => {
-  const [show, setShow] = useState(false)
+const MessageAlert = (ini,msg,titleMsg) => {
+  const [show, setShow] = useState(ini)
 
     return (
       <>
-        <Button variant="primary" 
-          onClick={() => setShow(true)}>
-          {btnMsg}
-        </Button>
+        {/* <Button variant="primary" onClick={() => setShow(true)}>
+          Custom Width Modal
+        </Button> */}
         <Modal
           show={show}
           onHide={() => setShow(false)}
@@ -28,7 +27,7 @@ const MessageAlert = (msg,btnMsg,titleMsg) => {
           </Modal.Body>
         </Modal>
       </>
-    );
+    )
   }
 
 export default MessageAlert

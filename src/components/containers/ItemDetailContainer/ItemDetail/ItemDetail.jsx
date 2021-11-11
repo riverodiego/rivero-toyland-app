@@ -2,12 +2,18 @@ import React, { useState } from 'react'
 import ItemCount from '../../../Item/ItemCount'
 import {Card, Button, Col, Row} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../../../context/CartContext';
 
 const ItemDetail = ({item}) => {
     const [cant, setCant] = useState(1);
+    const { cartList, showList, addToCart } = useCartContext();
+
+    console.log(cartList);
+    console.log(showList);
 
     const addOn = (count) => {
         setCant(count);
+        addToCart({...item, quantity: count});
         alert(`La cantidad Agregada es: ${count}`);
     }
 

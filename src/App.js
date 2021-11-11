@@ -4,10 +4,12 @@ import ItemDetailContainer from './components/containers/ItemDetailContainer/Ite
 import {Container} from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Cart from './components/Cart/Cart';
+import CartContextProvider from './context/CartContext';
 
 function App() {
   return (
     <Container fluid>
+      <CartContextProvider>
         <Router>
           <NavBar />
           <Switch>
@@ -20,6 +22,7 @@ function App() {
             <Route exact path='/cart' component={Cart}/>
           </Switch>
         </Router>
+      </CartContextProvider>
     </Container>
   );
 }

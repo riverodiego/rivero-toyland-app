@@ -1,9 +1,11 @@
-import {Navbar,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
+import {Navbar,Nav,NavDropdown,Form,FormControl,Button, Badge} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
 import CartWidget from './CartWidget';
 
-
 const NavBar = () => {
+    const { totalCartPay } = useCartContext();
+
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Brand as={Link} to="/"><img src="../logo_tienda.png" alt="logo de la tienda" /> ToyLand </Navbar.Brand>
@@ -36,7 +38,7 @@ const NavBar = () => {
                     Promo del dia
                 </Nav.Link>
                 <Nav.Link as={Link} to="/cart">
-                    <CartWidget />
+                    <CartWidget /> <Badge bg="success" > $ {totalCartPay}</Badge>
                 </Nav.Link>
                 </Nav>
                 <Form className="d-flex mx-auto">
