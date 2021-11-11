@@ -21,7 +21,6 @@ const CartContextProvider = ({children}) => {
         else {
             setCartList([...cartList, item])
         }
-    setTotalCartPay(cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0))
     }
 
     const removeItem = (id) => {
@@ -33,9 +32,9 @@ const CartContextProvider = ({children}) => {
         setTotalCartPay(0);
     }
 
-//    const totalCart = () => {
-//        setTotalCartPay(cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0))
-//    }
+    const totalCart = () => {
+        setTotalCartPay(cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0))
+    }
 
     const showList = () => {
         console.log(cartList)
@@ -49,6 +48,7 @@ const CartContextProvider = ({children}) => {
             addToCart,
             removeItem,
             removeAllCart,
+            totalCart
         }}>
             {children}
         </CartContext.Provider>
