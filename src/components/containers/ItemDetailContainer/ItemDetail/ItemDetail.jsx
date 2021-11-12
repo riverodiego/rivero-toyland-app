@@ -14,7 +14,7 @@ const ItemDetail = ({item}) => {
     const addOn = (count) => {
         setCant(count);
         addToCart({...item, quantity: count});
-        alert(`La cantidad Agregada es: ${count}`);
+        //alert(`La cantidad Agregada es: ${count}`);
     }
 
     return (

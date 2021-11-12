@@ -1,17 +1,38 @@
 import React, { useState } from 'react';
-import {Button,InputGroup,FormControl} from 'react-bootstrap';
+import {Button,InputGroup,FormControl, Modal} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-//import MessageAlert from '../MessageAlert/MessageAlert';
 
 export default function ItemCount({stock, initial, addOn}) {
+    const [ modalShow, setModalShow ] = useState(false);
     const [count, setCount] = useState(initial);
     const [inputType, setInputType] = useState("addCart");
     const [hidecount, setHideCount] = useState();
 
-    const handleChange = () => {
+    function MyVerticallyCenteredModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Confirmacion
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <h4> Se agrego: {count} unidad(es) al carrito</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        )}
 
-        setInputType("endBuy");
-    }
+        const handleChange = () => {
+            setInputType("endBuy");
+            }
 
     return (
         <>
@@ -21,21 +42,22 @@ export default function ItemCount({stock, initial, addOn}) {
                 <Button variant="outline-primary"  size="sm" onClick={() => setCount(count+1)} disabled={count===stock}>+</Button>
             </InputGroup>
             <div className="text-center" onClick={handleChange}>
-                { inputType === "addCart" ? 
+                { inputType === "endBuy" ? 
                     <>
-                        <Button variant="success" size="sm" className="mt-2"
-                            onClick={()=> {
-                                addOn(count);
-                                setHideCount('none');
-                                // MessageAlert(true,`Cantidad Agregada: ${count}`,"Aviso Carrito")
-                            }}>
-                            Agregar al Carrito
-                        </Button>
+                        <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)}/>
+                        <Button as={Link} to='/cart' size="sm" variant="primary" className="mt-2">
+                            Terminar la Compra
+                        </Button> 
                     </>
                 :
-                <Button as={Link} to='/cart' size="sm" variant="primary" className="mt-2">
-                        Terminar la Compra
-                </Button> 
+                    <>
+                        <Button variant="success" size="sm" className="mt-2"  onClick={()=> {
+                                addOn(count);
+                                setHideCount('none');
+                                setModalShow(true)}}>
+                                Agregar al Carrito
+                        </Button>
+                    </>
                 }
             </div>
         </>

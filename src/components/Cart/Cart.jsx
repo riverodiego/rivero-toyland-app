@@ -16,7 +16,10 @@ export default function Cart() {
             <div className="m-5 text-center" >
                 <Button variant="success"  size="sm" onClick={() => removeAllCart()} hidden={(cartList.length > 0 ? false : true)}> Borrar todo el carrito</Button>
             </div>
-            <Alert variant={"light"} className="p-5 m-5 text-center" hidden={(cartList.length > 0 ? true : false)}> No hay productos seleccionados...</Alert>
+            <Alert variant={"light"} className="p-5 m-5 text-center" hidden={(cartList.length > 0 ? true : false)}> 
+                <h3>Carrito Vacio</h3>
+                No hay productos seleccionados...
+            </Alert>
         </>
     )
 }

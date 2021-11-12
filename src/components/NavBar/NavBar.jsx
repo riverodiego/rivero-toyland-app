@@ -37,11 +37,9 @@ const NavBar = () => {
                 <Nav.Link as={Link} to="/" disabled>
                     Promo del dia
                 </Nav.Link>
-                <Nav.Link as={Link} to="/cart">
-                    <CartWidget /> <Badge bg="success" > $ {totalCartPay}</Badge>
-                </Nav.Link>
                 </Nav>
-                <Form className="d-flex mx-auto">
+            </Navbar.Collapse>
+            <Form className="d-flex mx-auto">
                 <FormControl
                     type="search"
                     placeholder="Buscar en toda la tienda"
@@ -49,8 +47,10 @@ const NavBar = () => {
                     aria-label="Search"
                 />
                 <Button variant="outline-success">Ir</Button>
-                </Form>
-            </Navbar.Collapse>
+            </Form>
+            <Nav.Link as={Link} to="/cart">
+                    <CartWidget /> <Badge bg="success" > $ {totalCartPay}</Badge>
+            </Nav.Link>
         </Navbar>
     )
 }

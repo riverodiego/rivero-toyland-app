@@ -48,7 +48,7 @@ const CartContextProvider = ({children}) => {
             addToCart,
             removeItem,
             removeAllCart,
-            totalCart
+            totalCart,
         }}>
             {children}
         </CartContext.Provider>
