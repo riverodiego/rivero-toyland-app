@@ -7,7 +7,7 @@ export default function Item(prod) {
         <Card key={prod.id} style={{ minWidth: '14rem', maxWidth: '16rem', maxHeight: '40rem' }} className="m-3 text-center shadow">
         <Card.Header>{prod.name}</Card.Header>
         <Card.Body className="text-center">
-        <Card.Img style={{ maxWidth: '8rem', maxHeight: '10rem' }} variant="top" src={prod.foto} />
+        <Card.Img style={{ minWidth: '9rem', minHeight: '10rem', maxWidth: '9rem', maxHeight: '10rem' }} variant="top" src={prod.foto} />
             <Card.Title> $ {prod.price}</Card.Title>
             <Card.Text> {prod.category}</Card.Text>
             <Link to={`/detalle/${prod.id}`}>

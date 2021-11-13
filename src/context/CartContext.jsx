@@ -33,7 +33,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const totalCart = () => {
-        setTotalCartPay(cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0))
+        return setTotalCartPay(cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0))
     }
 
     const showList = () => {
