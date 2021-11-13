@@ -13,21 +13,22 @@ const [loading, setLoading] = useState(true)
 const { id } = useParams ();
 
 useEffect(() => {
-        getProducts
-        .then( res => {        
-            console.log('llamada a api')
-            setItem(res.find(prod => prod.id === parseInt(id)))
-        })    
-        .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
+    getProducts
+    .then( res => {        
+        console.log('llamada a api')
+        setItem(res.find(prod => prod.id === parseInt(id)))
+    })    
+    .catch(err => console.log(err))
+    .finally(()=> setTimeout(()=>(setLoading(false)),1000))
 },[id])
 
     return (
         <Row className="mx-0">
             <Col className="mt-2 text-center"> 
                 {greeting}
-                <h2>Detalle del producto Nro: {item.id}</h2>
-                {loading ? <Loading/> :<ItemDetail item={item}/>}
+                <h2>Detalle del producto</h2>
+                <h3>Id {item.id}</h3>
+                {loading ? <Loading h="20vh" w="0" size="lg"/> : <ItemDetail item={item}/>}
             </Col>
         </Row>
     )

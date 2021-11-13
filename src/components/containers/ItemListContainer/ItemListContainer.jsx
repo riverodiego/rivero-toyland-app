@@ -22,7 +22,7 @@ useEffect(() => {
                 setProduct(res.filter(prod => prod.age.includes(id)))
             })    
             .catch(err => console.log(err))
-            .finally(()=> setLoading(false))
+            .finally(()=> setTimeout(()=>setLoading(false),2500))
         }else{
         getProducts
         .then( res => {        
@@ -30,7 +30,7 @@ useEffect(() => {
             setProduct(res.filter(prod => prod.category=== id))
         })    
         .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
+        .finally(()=> setTimeout(()=>setLoading(false),2500))
         }
     }else{
         getProducts
@@ -40,7 +40,7 @@ useEffect(() => {
             setProduct(res)
         })    
         .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
+        .finally(()=> setTimeout(()=>setLoading(false),1000))
     }
 },[id])
 
@@ -50,7 +50,7 @@ useEffect(() => {
                 {greeting}
                 <h2>Lista de Juguetes Disponibles</h2>
                 { id ? <h3> Categoria: {id} </h3> : <h3> Categoria: Todas </h3>}
-                {loading ? <Loading/> :<ItemList product={product}/>}
+                {loading ? <Loading h="20vh" w="0" size="lg" /> :<ItemList product={product}/>}
             </Col>
         </Row>
     )

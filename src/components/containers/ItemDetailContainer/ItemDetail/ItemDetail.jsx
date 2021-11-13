@@ -14,7 +14,6 @@ const ItemDetail = ({item}) => {
     const addOn = (count) => {
         setCant(count);
         addToCart({...item, quantity: count});
-        //alert(`La cantidad Agregada es: ${count}`);
     }
 
     return (
@@ -24,7 +23,7 @@ const ItemDetail = ({item}) => {
             <Card.Body>
             <Row>
                 <Col className="w-50">
-                    <Card.Img variant="top" src={item.foto} />
+                    <Card.Img style={{ maxWidth: '14rem', maxHeight: '24rem' }} variant="top" src={item.foto} />
                 </Col>
                 <Col className="mt-5">
                     <Card.Title> <h2> $ {item.price} </h2></Card.Title>
