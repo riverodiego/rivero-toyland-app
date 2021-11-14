@@ -19,7 +19,7 @@ useEffect(() => {
         setItem(res.find(prod => prod.id === parseInt(id)))
     })    
     .catch(err => console.log(err))
-    .finally(()=> setTimeout(()=>(setLoading(false)),1000))
+    .finally(()=> setTimeout(()=>setLoading(false),1500))
 },[id])
 
     return (

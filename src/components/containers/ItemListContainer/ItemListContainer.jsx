@@ -22,7 +22,7 @@ useEffect(() => {
                 setProduct(res.filter(prod => prod.age.includes(id)))
             })    
             .catch(err => console.log(err))
-            .finally(()=> setTimeout(()=>setLoading(false),2500))
+            .finally(()=> setTimeout(()=>setLoading(false),2000))
         }else{
         getProducts
         .then( res => {        
@@ -30,7 +30,7 @@ useEffect(() => {
             setProduct(res.filter(prod => prod.category=== id))
         })    
         .catch(err => console.log(err))
-        .finally(()=> setTimeout(()=>setLoading(false),2500))
+        .finally(()=> setTimeout(()=>setLoading(false),3000))
         }
     }else{
         getProducts
@@ -40,7 +40,7 @@ useEffect(() => {
             setProduct(res)
         })    
         .catch(err => console.log(err))
-        .finally(()=> setTimeout(()=>setLoading(false),1000))
+        .finally(()=> setTimeout(()=>setLoading(false),2000))
     }
 },[id])
 

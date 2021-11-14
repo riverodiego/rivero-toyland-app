@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 export default function ItemCount({stock, initial, addOn}) {
+
     const [ modalShow, setModalShow ] = useState(false);
     const [count, setCount] = useState(initial);
     const [inputType, setInputType] = useState();
@@ -57,8 +58,8 @@ export default function ItemCount({stock, initial, addOn}) {
                     <Button variant="success" size="sm" className="mt-2"  onClick={()=> {
                             addOn(count);
                             setHideCount('hidden');
-                            setTimeout(() =>{setLoading(false)},2000);
-                            setTimeout(() =>{setModalShow(true)},2100)
+                            setTimeout(() =>{setLoading(false)},1000);
+                            setTimeout(() =>{setModalShow(true)},1100);
                             }}>
                             Agregar al Carrito
                     </Button>
