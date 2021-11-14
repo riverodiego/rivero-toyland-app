@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 
 export default function Cart() {
     
-    const { cartList, removeItem, removeAllCart, totalCartPay } = useCartContext();
+    const { cartList, removeItem, removeAllCart, totalCart } = useCartContext();
+
+    console.log("cartList de carrito",cartList)
+    console.log("fn totalCart de carrito",totalCart)
 
     return (
         <>
@@ -14,7 +17,7 @@ export default function Cart() {
             ······ Subtotal: {prod.quantity*prod.price}······<Button variant="primary" size="sm" onClick={() => removeItem(prod.id)} >Eliminar</Button>
             </li> )}
             <Alert variant="primary" className="p-3 m-2 text-center shadow" hidden={cartList.length > 0 ? false : true} >
-                <h5> Total de la Compra: $ {totalCartPay} </h5>
+                <h5> Total de la Compra: $ {totalCart()} </h5>
             </Alert>
             <div className="m-5 text-center" >
                     <Button variant="success"  size="sm" onClick={() => removeAllCart()} hidden={cartList.length > 0 ? false : true}> Borrar todo el carrito</Button>

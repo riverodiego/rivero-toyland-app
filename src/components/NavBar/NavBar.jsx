@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext';
 import CartWidget from './CartWidget';
 
 const NavBar = () => {
-    const { totalCartPay } = useCartContext();
+    const { totalCart } = useCartContext();
 
     return (
         <Navbar bg="light" expand="lg">
@@ -49,7 +49,7 @@ const NavBar = () => {
                 <Button variant="outline-success">Ir</Button>
             </Form>
             <Nav.Link as={Link} to="/cart">
-                    <CartWidget /> <Badge bg="success" > $ {totalCartPay}</Badge>
+                    <CartWidget /> <Badge bg="success" > $ {totalCart()}</Badge>
             </Nav.Link>
         </Navbar>
     )

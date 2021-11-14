@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button,InputGroup,FormControl} from 'react-bootstrap';
 
-export default function ItemCount({stock, initial, addOn, setLoading, setModalShow}) {
+export default function ItemCount({stock, initial, addOn, setLoading, setModalShow, handleChange}) {
     const [hideCount, setHideCount] = useState("visible");
     const [count, setCount] = useState(initial);
         
@@ -14,9 +14,10 @@ export default function ItemCount({stock, initial, addOn, setLoading, setModalSh
             </InputGroup>
             <Button variant="success" size="sm" className="mt-2"  onClick={()=> {
                     addOn(count);
+                    handleChange();
                     setHideCount('hidden');
-                    setTimeout(() =>{setLoading(false)},700);
-                    setTimeout(() =>{setModalShow(true)},800);
+                    setTimeout(() =>{setLoading(false)},600);
+                    setTimeout(() =>{setModalShow(true)},700);
                     }}>
                     Agregar al Carrito
             </Button>
