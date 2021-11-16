@@ -32,7 +32,7 @@ const ItemDetail = ({item}) => {
             <Card.Body>
             <Row>
                 <Col className="w-50">
-                    <Card.Img style={{ maxWidth: '14rem', maxHeight: '24rem' }} variant="top" src={item.foto} />
+                    <Card.Img style={{ minWidth: '9rem', maxWidth: '14rem', minHeight: '14rem', maxHeight: '24rem' }} variant="top" src={item.foto} />
                 </Col>
                 <Col className="mt-5">
                     <Card.Title> <h2> $ {item.price} </h2></Card.Title>
@@ -42,7 +42,7 @@ const ItemDetail = ({item}) => {
                                 <AlertMessage show={modalShow} onHide={() => setModalShow(false)}
                                 titleMsg="Aviso del Carrito" bodyMsg={<h4> Se agrego: {cant} unidad(es) al carrito</h4>}
                                 />
-                                <Button as={Link} to='/cart' size="sm" variant="primary" className="mt-2">
+                                <Button as={Link} to='/cart' size="sm" variant="primary" className="mt-5">
                                     {loading ? <Loading h="0" w="0.5vw" size="sm" title="Agregando..."/> : "Terminar la Compra"}
                                 </Button> 
                             </>

@@ -11,6 +11,10 @@ const CartContextProvider = ({children}) => {
         return cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0)
     }
 
+    const totalItemCart = () => {
+        return cartList.reduce((acum,prod) => acum + prod.quantity,0)
+    }
+
     function addToCart(item){
 
         const index = cartList.findIndex(elem => elem.id === item.id)
@@ -46,7 +50,8 @@ const CartContextProvider = ({children}) => {
             addToCart,
             removeItem,
             removeAllCart,
-            totalCart
+            totalCart,
+            totalItemCart
         }}>
             {children}
         </CartContext.Provider>
