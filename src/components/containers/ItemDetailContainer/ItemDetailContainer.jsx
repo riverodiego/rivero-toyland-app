@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getProducts } from '../../../services/getProducts'
 import {useParams} from 'react-router-dom'
+import { getFirestore } from '../../../services/getFirestore';
 import ItemDetail from './ItemDetail/ItemDetail'
 import Loading from '../../Loading/Loading';
 import { Row,Col } from 'react-bootstrap';
@@ -12,17 +12,19 @@ const [loading, setLoading] = useState(true)
 
 const { id } = useParams ();
 
+const db = getFirestore()
+
 useEffect(() => {
-    getProducts
-    .then( res => {        
-        console.log('llamada a api')
-        setItem(res.find(prod => prod.id === parseInt(id)))
-    })    
+
+if (id) {
+    const dbQueryItem = db.collection('items').doc(id).get()
+    dbQueryItem
+    .then(resp => setItem({id: resp.id, ...resp.data()}))
     .catch(err => console.log(err))
-    .finally(()=> setTimeout(()=>setLoading(false),500))
-    return (
-        setLoading(true)
-    )
+    .finally(setTimeout(()=>setLoading(false),500))    
+}
+
+//eslint-disable-next-line react-hooks/exhaustive-deps
 },[id])
 
     return (
