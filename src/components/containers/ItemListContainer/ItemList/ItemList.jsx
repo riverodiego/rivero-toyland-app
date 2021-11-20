@@ -8,7 +8,7 @@ const ItemList = ({product}) => {
                 product.map(prod =>
                             <Item key={prod.id} name={prod.name}
                                 foto={prod.foto} price={prod.price} category={prod.category} id={prod.id}
-                                detail={prod.detail} stock={prod.stock}/>
+                                detail={prod.detail} age={prod.age} stock={prod.stock}/>
                     )
             }
         </div>

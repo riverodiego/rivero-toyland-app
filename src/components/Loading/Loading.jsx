@@ -9,8 +9,6 @@ export default function Loading({h,w, title="Cargando...",size}) {
         marginRight: w
     }
 
-    console.log(style);
-
     return (
             <div  className="d-inline-flex" style={style}>
                 <Spinner size={size} className="pt-2" animation="border" role="status">

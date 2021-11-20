@@ -15,6 +15,7 @@ export default function Item(prod) {
             </Link>
         </Card.Body>
         <Card.Footer>
+            <Card.Text className="text-muted"> Edad: {prod.age} </Card.Text>
             <Card.Text className="text-muted"> {prod.stock} productos disponibles </Card.Text>
         </Card.Footer>
         </Card>

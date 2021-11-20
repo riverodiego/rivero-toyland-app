@@ -1,6 +1,6 @@
 [
     {
-        "id":1,
+        "nro":1,
         "foto":"https://www.kanton.com.ar/8874-home_default/mini-pista-hockey-hielo-juego-de-mesa-.jpg",
         "name":"Mini pista de hockey sobre hielo",
         "category":"juegosdemesa",
@@ -10,7 +10,7 @@
         "age":"4a6años7a9añosmayores"
     },
     {
-        "id":2,
+        "nro":2,
         "foto":"https://www.kanton.com.ar/8875-large_default/squishy-ardilla-apretar-antistress.jpg",
         "name":"Squishy Ardilla Apretar Antistress",
         "category":"peluches",
@@ -20,7 +20,7 @@
         "age":"7a9añosmayores"
     },
     {
-        "id":3,
+        "nro":3,
         "foto":"https://www.kanton.com.ar/902-home_default/juego-pesca-fishing-peces.jpg",
         "name":"Juego pesca fishing peces mini pescamagic a rosca",
         "category":"juegosdemesa",
@@ -30,7 +30,7 @@
         "age": "4a6años7a9añosmayores"
     },
     {
-        "id":4,
+        "nro":4,
         "foto":"https://www.kanton.com.ar/659-home_default/sonajero-de-peluche-musica-bebe.jpg",
         "name":"Sonajero peluche musical bebe ardilla",
         "category":"peluches",
@@ -40,7 +40,7 @@
         "age":"1a3años"
     },
     {
-        "id":5,
+        "nro":5,
         "foto":"https://www.kanton.com.ar/1986-home_default/bloques-juguete.jpg",
         "name":"bloques juguete en blister x25 unidades",
         "category":"ladrillos",
@@ -50,7 +50,7 @@
         "age":"4a6años7a9años"
     },
     {
-        "id":6,
+        "nro":6,
         "foto":"https://www.kanton.com.ar/7304-home_default/auto-camion-bomberos-en-blister.jpg",
         "name":"auto camion bomberos en blister",
         "category":"autos",
@@ -60,7 +60,7 @@
         "age":"4a6años7a9años"
     },
     {
-        "id":7,
+        "nro":7,
         "foto":"../assets/image/libro_de_cuentos.jpg",
         "name":"LIBRO 101 CUENTOS CORTOS PARA DORMIR , SOÑAR Y COMPARTIR",
         "category":"cuentos",
@@ -70,7 +70,7 @@
         "age":"4a6años7a9años"
     },
     {
-        "id":8,
+        "nro":8,
         "foto":"https://http2.mlstatic.com/D_NQ_NP_949200-MLA44203011491_112020-O.webp",
         "name":"He-man Tv Super 7 Vintage Masters Of The Universe Motu 14cm",
         "category":"muñecos",
