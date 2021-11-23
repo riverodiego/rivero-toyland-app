@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { getFirestore } from '../../../services/getFirestore';
 import ItemDetail from './ItemDetail/ItemDetail'
-import Loading from '../../Loading/Loading';
+import { useCartContext } from '../../../context/CartContext';
+import LoadingComp from '../../LoadingComp/LoadingComp';
 import { Row,Col } from 'react-bootstrap';
 
 const ItemDetailContainer = ({greeting}) => {
 
 const [item, setItem] = useState([])
-const [loading, setLoading] = useState(true)
+
+const { loading, Loading, LoadingBtn } = useCartContext();
 
 const { id } = useParams ();
 
@@ -21,8 +23,13 @@ if (id) {
     dbQueryItem
     .then(resp => setItem({id: resp.id, ...resp.data()}))
     .catch(err => console.log(err))
-    .finally(setTimeout(()=>setLoading(false),500))    
+    .finally(setTimeout(()=>Loading(false),600))
 }
+
+return(
+    Loading(true),
+    LoadingBtn(true)
+)
 
 //eslint-disable-next-line react-hooks/exhaustive-deps
 },[id])
@@ -33,7 +40,7 @@ if (id) {
                 {greeting}
                 <h2>Detalle del producto</h2>
                 <h3>Id {item.id}</h3>
-                {loading ? <Loading h="20vh" w="0" size="lg"/> : <ItemDetail item={item}/>}
+                {loading ? <LoadingComp h="20vh" w="0" size="lg"/> : <ItemDetail item={item}/>}
             </Col>
         </Row>
     )

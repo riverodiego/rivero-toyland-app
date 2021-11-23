@@ -2,14 +2,16 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import { getFirestore } from '../../../services/getFirestore';
 import ItemList from './ItemList/ItemList';
-import Loading from '../../Loading/Loading';
+import { useCartContext } from '../../../context/CartContext';
+import LoadingComp from '../../LoadingComp/LoadingComp';
 import { Row,Col } from 'react-bootstrap';
 
 export default function ItemListContainer({greeting}) {
 
 const [products, setProducts] = useState([])
 const [aux, setAux] = useState([])
-const [loading, setLoading] = useState(true)
+
+const { loading, Loading } = useCartContext();
 
 const { id } = useParams ();
 
@@ -30,24 +32,24 @@ useEffect(() => {
                         setProducts(aux.filter(prod => prod.age.includes(id)))
                     )
             .catch(err => console.log(err))
-            .finally(() => setTimeout(()=>setLoading(false),800))
+            .finally(() => setTimeout(()=>Loading(false),800))
         }else{
             const dbQueryCategory = db.collection('items').where('category','==',id).get()
             dbQueryCategory
             .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()})), ...products))
             .catch(err => console.log(err))
-            .finally(()=> setTimeout(()=>setLoading(false),600))
+            .finally(()=> setTimeout(()=>Loading(false),600))
         }
     }else{
         const dbQueryAll = db.collection('items').get()
         dbQueryAll
         .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()})), ...products))
         .catch(err => console.log(err))
-        .finally(()=> setTimeout(()=>setLoading(false),800))
+        .finally(()=> setTimeout(()=>Loading(false),800))
     }
 
     return (
-        setLoading(true)
+        Loading(true)
     )
 
          //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,7 +61,7 @@ useEffect(() => {
                 {greeting}
                 <h2>Lista de Juguetes Disponibles</h2>
                 { id ? <h3> Categoria: {id} </h3> : <h3> Categoria: Todas </h3>}
-                {loading ? <Loading h="20vh" w="0" size="lg" /> :<ItemList product={products}/>}
+                {loading ? <LoadingComp h="20vh" w="0" size="lg" /> :<ItemList product={products}/>}
             </Col>
         </Row>
     )

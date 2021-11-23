@@ -49,7 +49,7 @@ const NavBar = () => {
                     />
                     <Button variant="outline-success">Ir</Button>
                 </Form>
-                <Nav.Link as={Link} to="/cart" hidden={cartList.length === 0 ? true : false} >
+                <Nav.Link as={Link} to="/cart">
                         <CartWidget/>
                         <OverlayTrigger placement={'bottom'} overlay={
                             <Tooltip id={`tooltip-bottom`} >

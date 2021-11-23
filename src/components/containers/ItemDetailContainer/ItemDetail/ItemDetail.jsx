@@ -3,18 +3,13 @@ import ItemCount from '../../../Item/ItemCount'
 import {Card, Button, Col, Row} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../../../context/CartContext';
-import Loading from '../../../Loading/Loading';
+import LoadingComp from '../../../LoadingComp/LoadingComp';
 import AlertMessage from '../../../AlertMessage/AlertMessage';
 
 const ItemDetail = ({item}) => {
     const [cant, setCant] = useState(1);
     const [inputType, setInputType] = useState();
-    const [loading, setLoading] = useState(true);
-    const [ modalShow, setModalShow ] = useState(false);
-    const { cartList, showList, addToCart } = useCartContext();
-
-    console.log(cartList);
-    console.log(showList);
+    const { addToCart, loadingBtn, LoadingBtn, modalShow, ModalShow } = useCartContext();
 
     const addOn = (count) => {
         setCant(count);
@@ -39,16 +34,16 @@ const ItemDetail = ({item}) => {
                     <Card.Title className="m-5 text-center">
                         { inputType === "endBuy" ? 
                             <>
-                                <AlertMessage show={modalShow} onHide={() => setModalShow(false)}
+                                <AlertMessage show={modalShow} onHide={() => ModalShow(false)}
                                 titleMsg="Aviso del Carrito" bodyMsg={<h4> Se agrego: {cant} unidad(es) al carrito</h4>}
                                 />
                                 <Button as={Link} to='/cart' size="sm" variant="primary" className="mt-5">
-                                    {loading ? <Loading h="0" w="0.5vw" size="sm" title="Agregando..."/> : "Terminar la Compra"}
+                                    {loadingBtn ? <LoadingComp h="0" w="0.5vw" size="sm" title="Agregando..."/> : "Terminar la Compra"}
                                 </Button> 
                             </>
                             :
-                                <ItemCount stock={item.stock} initial={cant} addOn={addOn} 
-                                setLoading={setLoading} setModalShow={setModalShow} handleChange={handleChange}/>
+                                <ItemCount stock={item.stock} initial={cant} addOn={addOn}
+                                LoadingBtn={LoadingBtn} ModalShow={ModalShow} handleChange={handleChange}/>
                         }
                     </Card.Title>
                     <Card.Title className="m-3">

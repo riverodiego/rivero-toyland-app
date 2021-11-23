@@ -6,6 +6,21 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [loadingBtn, setLoadingBtn] = useState(true);
+    const [ modalShow, setModalShow ] = useState(false);
+
+    const LoadingBtn = (val)=> {
+        return setLoadingBtn(val)
+    }
+
+    const Loading = (val)=> {
+        return setLoading(val)
+    }
+
+    const ModalShow = (val)=> {
+        return setModalShow(val)
+    }
 
     const totalCart = () => {
         return cartList.reduce((acum,prod) => acum + (prod.quantity * prod.price),0)
@@ -46,12 +61,18 @@ const CartContextProvider = ({children}) => {
     return (
         <CartContext.Provider value={{
             cartList,
+            modalShow,
+            loading,
+            loadingBtn,
             showList,
             addToCart,
             removeItem,
             removeAllCart,
             totalCart,
-            totalItemCart
+            totalItemCart,
+            Loading,
+            ModalShow,
+            LoadingBtn
         }}>
             {children}
         </CartContext.Provider>

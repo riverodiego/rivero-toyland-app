@@ -1,4 +1,4 @@
-import {Card, Button} from 'react-bootstrap';
+import {Card, Button, Alert} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function Item(prod) {
@@ -16,7 +16,11 @@ export default function Item(prod) {
         </Card.Body>
         <Card.Footer>
             <Card.Text className="text-muted"> Edad: {prod.age} </Card.Text>
-            <Card.Text className="text-muted"> {prod.stock} productos disponibles </Card.Text>
+            { prod.stock < 1 ? 
+                <Alert variant={"danger"}> Producto Sin Stock </Alert>
+                :
+                <Alert variant={"light"}>{prod.stock} productos disponibles </Alert> 
+            }
         </Card.Footer>
         </Card>
     )

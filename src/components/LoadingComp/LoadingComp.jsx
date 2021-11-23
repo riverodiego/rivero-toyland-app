@@ -1,6 +1,6 @@
 import {Spinner} from 'react-bootstrap';
 
-export default function Loading({h,w, title="Cargando...",size}) {
+export default function LoadingComp({h,w, title="Cargando...",size}) {
 
     const style = {
         marginTop: h, 
