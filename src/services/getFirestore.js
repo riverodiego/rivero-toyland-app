@@ -1,5 +1,5 @@
 
-import firebase from "firebase"
+import firebase from "firebase/app"
 import 'firebase/firestore'
 
 const firebaseConfig = {
@@ -11,9 +11,16 @@ const firebaseConfig = {
     appId: "1:872310235770:web:cc2142efdfc0c37cbfd1c3"
 };
 
-
 const app = firebase.initializeApp(firebaseConfig)
 
 export function getFirestore(){    
     return firebase.firestore(app)
+}
+
+export function getToday(){
+    return firebase.firestore.Timestamp.fromDate(new Date())
+}
+
+export function getDocId(){
+    return firebase.firestore.FieldPath.documentId()
 }

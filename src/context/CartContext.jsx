@@ -10,6 +10,10 @@ const CartContextProvider = ({children}) => {
     const [loadingBtn, setLoadingBtn] = useState(true);
     const [ modalShow, setModalShow ] = useState(false);
 
+    const IsCartEmpty = () => {
+        return cartList.length < 1 ? true : false
+    }
+
     const LoadingBtn = (val)=> {
         return setLoadingBtn(val)
     }
@@ -30,20 +34,15 @@ const CartContextProvider = ({children}) => {
         return cartList.reduce((acum,prod) => acum + prod.quantity,0)
     }
 
-    function addToCart(item){
-
+    const addToCart = (item) => {
         const index = cartList.findIndex(elem => elem.id === item.id)
-
         if (index > -1) {
             const oldQuantity = cartList[index].quantity
-
             cartList.splice(index, 1)
             setCartList([...cartList, {...item, quantity: item.quantity + oldQuantity }])
-        }
-        else {
+        }else {
             setCartList([...cartList, item])
         }
-
     }
 
     const removeItem = (id) => {
@@ -54,17 +53,12 @@ const CartContextProvider = ({children}) => {
         setCartList([])
     }
 
-    const showList = () => {
-        console.log(cartList)
-    }
-
     return (
         <CartContext.Provider value={{
             cartList,
             modalShow,
             loading,
             loadingBtn,
-            showList,
             addToCart,
             removeItem,
             removeAllCart,
@@ -72,7 +66,8 @@ const CartContextProvider = ({children}) => {
             totalItemCart,
             Loading,
             ModalShow,
-            LoadingBtn
+            LoadingBtn,
+            IsCartEmpty
         }}>
             {children}
         </CartContext.Provider>

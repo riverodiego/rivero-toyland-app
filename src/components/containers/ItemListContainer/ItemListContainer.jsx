@@ -9,49 +9,36 @@ import { Row,Col } from 'react-bootstrap';
 export default function ItemListContainer({greeting}) {
 
 const [products, setProducts] = useState([])
-const [aux, setAux] = useState([])
-
 const { loading, Loading } = useCartContext();
-
 const { id } = useParams ();
-
 const db = getFirestore()
 
-//IMPORTADOR DE JSON
-//const data = require('../../../Products.json')
-//const incorp = () => {data.map(prod => db.collection('items').add(prod))};
-
 useEffect(() => {
-    
+
+    const dbQueryAll = db.collection('items').get();
+    const getProducts = (resp) => resp.docs.map(prod => ({id: prod.id, ...prod.data()}));
+
     if (id) {
         if (id.includes("años") || id==="mayores"){
-            const dbQueryAge = db.collection('items').get()
-            dbQueryAge
-            //trabajo con una variable auxiliar para poder despues filtrar el array asyncronico
-            .then(resp => setAux(resp.docs.map(prod => ({id: prod.id, ...prod.data()})), ...aux),
-                        setProducts(aux.filter(prod => prod.age.includes(id)))
-                    )
-            .catch(err => console.log(err))
+            dbQueryAll
+            .then(resp => setProducts(getProducts(resp).filter(prod=> prod.age.includes(id))))
+            .catch(err => console.log("errAge:",err))
             .finally(() => setTimeout(()=>Loading(false),800))
         }else{
             const dbQueryCategory = db.collection('items').where('category','==',id).get()
             dbQueryCategory
-            .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()})), ...products))
-            .catch(err => console.log(err))
+            .then(resp => setProducts(getProducts(resp)))
+            .catch(err => console.log("errCateg:",err))
             .finally(()=> setTimeout(()=>Loading(false),600))
         }
     }else{
-        const dbQueryAll = db.collection('items').get()
         dbQueryAll
-        .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()})), ...products))
-        .catch(err => console.log(err))
+        .then(resp => setProducts(getProducts(resp)))
+        .catch(err => console.log("errAll:",err))
         .finally(()=> setTimeout(()=>Loading(false),800))
     }
 
-    return (
-        Loading(true)
-    )
-
+    return (Loading(true))
          //eslint-disable-next-line react-hooks/exhaustive-deps
 },[id])
 

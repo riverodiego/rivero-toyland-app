@@ -1,6 +1,13 @@
 ## Proyecto de tienda de juguetes
 
-Esta es una tienda de juguetes dinamica que simula una app para compras online
+Es una tienda de juguetes dinamica que simula una app para generar ordenes de compra online
+realizada para el proyecto final del curso de React JS de Coderhouse.
+
+## Demo Testing
+
+- Se subio a NETLIFY el deploy del proyecto:
+
+[Ir a la APP] (https://hopeful-neumann-b2fb80.netlify.app/)
 
 ## Dependencias
 
@@ -8,15 +15,22 @@ Esta es una tienda de juguetes dinamica que simula una app para compras online
 - fortawesome: para incorporar el icono de carrito de compras, y otros iconos a futuro.
 - react bootstrap: para manejar los estilos del proyecto
 - react-router-dom: para crear la SPA con navegabilidad sin refrescar la pantalla
-- build: Se corrio net run build para luego subir la App a Netlify
+- netlify: es nuestro deploy del proyecto vinculado al repo de github.
+- firebase: es nuestro soporte de backend y base de datos.
 
 ## Implementaciones
 
-- Se creo un alert personalizado (MessageAlert)
-- Utiliza un archivo JSON para el array de datos que consumira la APP
+- Se creo un alert personalizado que se utiliza para toda la mensajeria de la APP incluido la orden de compra
+  (MessageAlert)
 
-## Testing
+## Herramientas
 
-- Se subio a NETLIFY el deploy del proyecto:
+IMPORTADOR DE JSON
 
-[Ir a la APP] (https://hopeful-neumann-b2fb80.netlify.app/)
+- si tienes un archivo JSON para importar a Netlify, debes usar la siguiente sentencia (p.e. en un boton):
+  const data = require('../../../Products.json')
+  const incorp = () => {data.map(prod => db.collection('items').add(prod))};
+
+## NOTAS DEL AUTOR
+
+- Por cuestiones personales se deja el archivo getProducts.jsx y Products.JSON, ambos sin utilidad.

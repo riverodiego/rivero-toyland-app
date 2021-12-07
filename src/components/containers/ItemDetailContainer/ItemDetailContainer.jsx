@@ -9,28 +9,23 @@ import { Row,Col } from 'react-bootstrap';
 const ItemDetailContainer = ({greeting}) => {
 
 const [item, setItem] = useState([])
-
 const { loading, Loading, LoadingBtn } = useCartContext();
-
 const { id } = useParams ();
-
 const db = getFirestore()
 
 useEffect(() => {
 
-if (id) {
-    const dbQueryItem = db.collection('items').doc(id).get()
-    dbQueryItem
-    .then(resp => setItem({id: resp.id, ...resp.data()}))
-    .catch(err => console.log(err))
-    .finally(setTimeout(()=>Loading(false),600))
-}
-
-return(
-    Loading(true),
-    LoadingBtn(true)
-)
-
+    if (id) {
+        const dbQueryItem = db.collection('items').doc(id).get()
+        dbQueryItem
+        .then(resp => setItem({id: resp.id, ...resp.data()}))
+        .catch(err => console.log("errId",err))
+        .finally(setTimeout(()=>Loading(false),600))
+    }
+    return(
+        Loading(true),
+        LoadingBtn(true)
+    )
 //eslint-disable-next-line react-hooks/exhaustive-deps
 },[id])
 
