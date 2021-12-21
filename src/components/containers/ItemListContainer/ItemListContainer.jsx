@@ -48,7 +48,7 @@ useEffect(() => {
                 {greeting}
                 <h2>Lista de Juguetes Disponibles</h2>
                 { id ? <h3> Categoria: {id} </h3> : <h3> Categoria: Todas </h3>}
-                {loading ? <LoadingComp h="20vh" w="0" size="lg" /> :<ItemList product={products}/>}
+                {loading ? <LoadingComp my="20vh" mx="0" size="lg" /> :<ItemList product={products}/>}
             </Col>
         </Row>
     )
