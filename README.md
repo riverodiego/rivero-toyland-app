@@ -7,7 +7,7 @@ realizada para el proyecto final del curso de React JS de Coderhouse.
 
 - Se subio a NETLIFY el deploy del proyecto:
 
-[Ir a la APP] (https://hopeful-neumann-b2fb80.netlify.app/)
+[Ir a la APP] (https://sad-panini-be1996.netlify.app/)
 
 ## Dependencias
 
@@ -17,6 +17,7 @@ realizada para el proyecto final del curso de React JS de Coderhouse.
 - react-router-dom: para crear la SPA con navegabilidad sin refrescar la pantalla
 - netlify: es nuestro deploy del proyecto vinculado al repo de github.
 - firebase: es nuestro soporte de backend y base de datos.
+- react reveal: se instalo la libreria para dar animacion a la APP.
 
 ## Implementaciones
 
@@ -34,3 +35,11 @@ IMPORTADOR DE JSON
 ## NOTAS DEL AUTOR
 
 - Por cuestiones personales se deja el archivo getProducts.jsx y Products.JSON, ambos sin utilidad.
+
+## REACT REVEAL
+
+- Requiere reemplazar el componente desactualizado componentWillReceiveProps, para eliminar el warning por defecto.
+  - Sugiere ejecutar en la carpeta del proyecto el comando:
+    npx react-codemod rename-unsafe-lifecycles
+  - luego reemplazar componentWillReceiveProps por UNSAFE_componentWillReceiveProps dentro de la ruta
+    react-reveal/src/RevealBase.js

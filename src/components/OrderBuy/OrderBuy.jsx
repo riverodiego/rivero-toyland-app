@@ -65,7 +65,7 @@ function OrderBuy({idOrder, setIdOrder}) {
         <FormOrder generateOrder={generateOrder} formData={formData} setFormData={setFormData}/>
         <section hidden={!IsCartEmpty()}>
                 {loading ? 
-                            <LoadingComp h="6vh" w="10vw" size="lg" title="Procesando compra..."/>
+                            <LoadingComp my="6vh" mx="6vw" size="lg" title="Procesando compra..."/>
                         : 
                             <section className="text-center">
                                 <h3>Su compra resulto exitosa</h3> <br/>

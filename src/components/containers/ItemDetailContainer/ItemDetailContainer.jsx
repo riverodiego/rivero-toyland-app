@@ -35,7 +35,7 @@ useEffect(() => {
                 {greeting}
                 <h2>Detalle del producto</h2>
                 <h3>Id {item.id}</h3>
-                {loading ? <LoadingComp h="20vh" w="0" size="lg"/> : <ItemDetail item={item}/>}
+                {loading ? <LoadingComp my="20vh" mx="0" size="lg"/> : <ItemDetail item={item}/>}
             </Col>
         </Row>
     )

@@ -6,9 +6,9 @@ const ItemList = ({product}) => {
         <div className="d-flex flex-wrap justify-content-start">
             {
                 product.map(prod =>
-                            <Item key={prod.id} name={prod.name}
-                                foto={prod.foto} price={prod.price} category={prod.category} id={prod.id}
-                                detail={prod.detail} age={prod.age} stock={prod.stock}/>
+                        <Item key={prod.id} name={prod.name}
+                            foto={prod.foto} price={prod.price} category={prod.category} id={prod.id}
+                            detail={prod.detail} age={prod.age} stock={prod.stock}/>
                     )
             }
         </div>
